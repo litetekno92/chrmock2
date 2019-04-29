@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
     
     // // Define the default Font Family
     // fontFamily: 'Montserrat',
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Roboto',
     
     
     // // Define the default TextTheme. Use this to specify the default

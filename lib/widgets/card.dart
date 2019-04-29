@@ -193,7 +193,8 @@ class ItemClick extends StatelessWidget {
                   height: 80.0,
                   placeholder: 'images/placeholder.png',
                   // image: 'https://picsum.photos/250?image=9',
-                  image: post.featuredMediaUrl,)
+                  image: post.featuredMediaUrl ??
+                            'https://picsum.photos/250?image=9',)
               ),
                Expanded(
                 flex: 9,
