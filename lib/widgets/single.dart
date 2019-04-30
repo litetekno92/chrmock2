@@ -4,10 +4,22 @@ import 'package:transparent_image/transparent_image.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:share/share.dart';
+import 'package:flat_icons_flutter/flat_icons_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class SinglePost extends StatelessWidget {
   final Post post;
   SinglePost({Key key, @required var this.post}) : super(key: key);
+ 
+  _launchURL(String url) async {
+ // const url = 'https://flutter.io';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +58,7 @@ class SinglePost extends StatelessWidget {
                           .toString(),
                       style: TextStyle(color: Colors.white)),
                   IconButton(
-                    icon: new Icon(FontAwesomeIcons.shareAlt),
+                    icon: new Icon(FlatIcons.share,color: Colors.white70,),
                     onPressed: () {
                   //    print("Pressed");
                       RenderBox box = context.findRenderObject();
@@ -57,11 +69,33 @@ class SinglePost extends StatelessWidget {
                     },
                   ),
                   IconButton(
-                    icon: new Icon(FontAwesomeIcons.save),
+                    icon: new Icon(FlatIcons.save,color: Colors.white70,),
                     onPressed: () {
                       print("Pressed");
                     },
                   ),
+                   IconButton(
+                    icon: new Icon(FlatIcons.worldwide_1,color: Colors.white70,),
+                    onPressed: () {
+                      _launchURL(post.link);
+        //              print("Pressed");
+                    },
+                  ),
+                    IconButton(
+                    icon: new Icon(FlatIcons.zoom_in,color: Colors.white70,),
+                    onPressed: () {
+         //             _launchURL(post.link);
+                  print("Pressed");
+                    },
+                  ),
+                   IconButton(
+                    icon: new Icon(FlatIcons.zoom_out,color: Colors.white70,),
+                    onPressed: () {
+         //             _launchURL(post.link);
+                  print("Pressed");
+                    },
+                  ),
+                  
                 ])
               ],
             ),

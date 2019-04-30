@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 
 
 class Category {
@@ -39,7 +40,7 @@ List<Category> categories = [
       id: 653,
       title: "ENVIRONNEMENT",
       color: Colors.red,
-      icon: FontAwesomeIcons.landmark),
+      icon: FontAwesomeIcons.recycle),
   Category(
       id: 460,
       title: "INTERNATIONAL",
@@ -76,7 +77,7 @@ List<Category> categories = [
       id: 578,
       title: "INFOS REGIONS",
       color: Colors.red,
-      icon: FontAwesomeIcons.artstation),
+      icon: FlatIcons.route),
   Category(
       id: 474,
       title: "POLITIQUE/INSTITUTION",

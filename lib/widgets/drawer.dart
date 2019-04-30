@@ -192,7 +192,7 @@ class CustomListTile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Row(children: [
-                          Icon(icon),
+                          Icon(icon, color: Theme.of(context).primaryColor,),
                           Padding(
                             padding: EdgeInsets.all(12.0),
                             child: Text(text, style: TextStyle(fontSize: 14.0)),

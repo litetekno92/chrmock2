@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:chrmock2/models/embedpost.dart';
 import 'package:chrmock2/widgets/single.dart';
-import 'package:flutter_html_view/flutter_html_view.dart';
+// import 'package:flutter_html_view/flutter_html_view.dart';
 import 'package:intl/intl.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -217,10 +217,11 @@ class ItemClick extends StatelessWidget {
                         maxLines: 5,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          color: Colors.black.withOpacity(0.8),
+                          
+                          color: Colors.black54,
                           fontSize: 12.0,
                           fontStyle: FontStyle.normal,
-                          //        fontWeight: FontWeight.bold
+                                fontWeight: FontWeight.w900,
                         )),
                     subtitle: AutoSizeText(
                       timeago.format( post.date, locale: 'fr'),
@@ -229,6 +230,7 @@ class ItemClick extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.6),
                             fontSize: 10.0,
+                            fontWeight: FontWeight.w400,
                             fontStyle: FontStyle.normal)),
                   ),
                 ),
