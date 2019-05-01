@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:share/share.dart';
 import 'package:flat_icons_flutter/flat_icons_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 
 class SinglePost extends StatelessWidget {
@@ -46,10 +47,18 @@ class SinglePost extends StatelessWidget {
                 ),
                 new Padding(
                     padding: EdgeInsets.all(16.0),
-                    child: new Text(
-                        post.content.rendered
-                            .replaceAll(new RegExp(r'<[^>]*>'), ''),
-                        style: TextStyle(color: Colors.white))),
+                    child: 
+                    // new Text(
+                    //     post.content.rendered
+                    //         .replaceAll(new RegExp(r'<[^>]*>'), ''),
+                    //     style: TextStyle(color: Colors.white))),
+                        Html(
+        data: (post.content.rendered).toString(),
+        defaultTextStyle: TextStyle(
+          color: Colors.white,
+   //         fontFamily: 'NotoKufiArabic',
+            fontSize: 16.0,
+            decoration: TextDecoration.none))),
                 Divider(color: Colors.white24),
                 Row(children: [
                   Text(

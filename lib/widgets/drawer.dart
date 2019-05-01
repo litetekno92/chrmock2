@@ -1,4 +1,5 @@
 import 'package:chrmock2/models/category.dart';
+import 'package:chrmock2/pages/fetchdatacat.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -68,61 +69,94 @@ class CustomDrawer extends StatelessWidget {
           icon: categories[0].icon,
           text: categories[0].title,
           onTap: () {
+            Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[0].id, page: 1)));
             
           }),
       CustomListTile(
           icon: categories[1].icon,
           text: categories[1].title,
           onTap: () {
+             Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[1].id, page: 1)));
             
           }),
       CustomListTile(
           icon: categories[2].icon,
           text: categories[2].title,
           onTap: () {
+             Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[2].id, page: 1)));
             
           }),
       CustomListTile(
           icon: categories[3].icon,
           text: categories[3].title,
           onTap: () {
-            
+             Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[3].id, page: 1)));
           }),
       CustomListTile(
           icon: categories[4].icon,
           text: categories[4].title,
           onTap: () {
-            
+             Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[4].id, page: 1)));
           }),
       CustomListTile(
           icon: categories[5].icon,
           text: categories[5].title,
           onTap: () {
-           
+            Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[5].id, page: 1)));
           }),
       CustomListTile(
           icon: categories[6].icon,
           text: categories[6].title,
           onTap: () {
-            
+             Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[6].id, page: 1)));
           }),
       CustomListTile(
           icon: categories[7].icon,
           text: categories[7].title,
           onTap: () {
-           
+            Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[7].id, page: 1)));
           }),
       CustomListTile(
           icon: categories[8].icon,
           text: categories[8].title,
           onTap: () {
-            
+             Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[8].id, page: 1)));
           }),
       CustomListTile(
           icon: categories[9].icon,
           text: categories[9].title,
           onTap: () {
-           
+            Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        FetchDataCat(category: categories[9].id, page: 1)));
           }),
       // CustomListTile(
       //     icon: categories[0].icon,

@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
     // ),
       ),
  //     home: MyHomePage(title: 'Accueil Chroniques'),
-    home: FetchDataCat (category: 1),
+    home: FetchDataCat (category: 1, page: 1),
  //home: Center(child: Text('Hello'),),
     );
   }

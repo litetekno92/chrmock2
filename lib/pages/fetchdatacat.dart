@@ -7,23 +7,28 @@ import 'package:chrmock2/models/embedpost.dart';
 import 'package:chrmock2/utils/APIcat.dart';
 import 'package:chrmock2/widgets/card.dart';
 import 'package:chrmock2/widgets/drawer.dart';
+import 'dart:developer';
+import 'package:flutter/foundation.dart';
 
 class FetchDataCat extends StatefulWidget {
   final int category;
+  final int page;
 
-  FetchDataCat({this.category});
+  FetchDataCat({this.category, this.page});
   @override
-  _FetchDataCatState createState() => _FetchDataCatState(this.category);
+  _FetchDataCatState createState() => _FetchDataCatState(this.category,this.page);
 }
 
 class _FetchDataCatState extends State<FetchDataCat> {
   final int category;
-  _FetchDataCatState(this.category);
+   final int page;
+  _FetchDataCatState(this.category,this.page);
   // List<Post> list = List();
   var posts = new List<Post>();
   var isLoading = false;
   var carouselPosts = new List<Post>();
   var bodyPosts = new List<Post>();
+  ScrollController _controller = ScrollController(); // instance variable
 
   _fetchDataCat(int category) {
     setState(() {
@@ -50,6 +55,14 @@ class _FetchDataCatState extends State<FetchDataCat> {
   initState() {
     super.initState();
    _fetchDataCat(this.category);
+   _controller.addListener(() {
+    if (_controller.position.atEdge) {
+      if (_controller.position.pixels == 0)
+        debugPrint("At extreme top");
+      else
+       debugPrint("At extreme bottom");
+    }
+  });
   }
 
   dispose() {
@@ -71,17 +84,22 @@ class _FetchDataCatState extends State<FetchDataCat> {
 : Column( 
   children: [
 Expanded(
-    child: CustomScrollView(slivers: <Widget>[
+    child: CustomScrollView(
+      controller: _controller,
+      slivers: <Widget>[
+      
   SliverList(
     delegate: SliverChildListDelegate(
       [
-         CarouselWithIndicator(),
+         CarouselWithIndicator(carouselPosts),
       ]
          ),
   ),
   SliverList(
     delegate: SliverChildBuilderDelegate(
+      
       (BuildContext context, int index) {
+        
         final item = bodyPosts[index];
         if (index > bodyPosts.length) return null;
         return ItemClick(post: item); // you can add your unavailable item here

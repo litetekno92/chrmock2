@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-
+// import 'package:html/dom.dart';
+// import 'package:html/dom_parsing.dart';
+// import 'package:html/parser.dart';
 import 'package:chrmock2/models/embedpost.dart';
 import 'package:chrmock2/widgets/single.dart';
 // import 'package:flutter_html_view/flutter_html_view.dart';
@@ -7,6 +9,8 @@ import 'package:intl/intl.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:timeago/timeago.dart' as timeago;
 //import 'package:html_unescape/html_unescape.dart';
+import 'package:flutter_html/flutter_html.dart';
+
 
 
 class PostCard extends StatefulWidget {
@@ -205,24 +209,25 @@ class ItemClick extends StatelessWidget {
                   //     border: Border.all(color: Colors.blueAccent)),
                   child: ListTile(
                     title: 
-                    AutoSizeText(post.title.rendered,
-            //            HtmlView(
-            //  data: post.title.rendered,
-            //   onLaunchFail: (url) {
-            //    print("launch $url failed");
-            //  },),
+   //                 AutoSizeText(post.title.rendered,
+                      Html(
+        data: (post.title.rendered).toString(),
+        defaultTextStyle: TextStyle(
+   //         fontFamily: 'NotoKufiArabic',
+            fontSize: 16.0,
+            decoration: TextDecoration.none)),
 //                      unescape.convert(post.title.rendered),
  //                       'Voici des plus gros titres encore ! et encore. Voici des plus gros titres encore ! et encore  Voici des plus gros titres encore! ',
-                        textAlign: TextAlign.left,
-                        maxLines: 5,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        // textAlign: TextAlign.left,
+                        // maxLines: 5,
+                        // overflow: TextOverflow.ellipsis,
+                        // style: TextStyle(
                           
-                          color: Colors.black54,
-                          fontSize: 12.0,
-                          fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w900,
-                        )),
+                        //   color: Colors.black54,
+                        //   fontSize: 12.0,
+                        //   fontStyle: FontStyle.normal,
+                        //         fontWeight: FontWeight.w900,
+                        // )),
                     subtitle: AutoSizeText(
                       timeago.format( post.date, locale: 'fr'),
          //             post.date.toString(),
