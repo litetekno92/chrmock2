@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chrmock2/models/embedpost.dart';
 import 'package:chrmock2/utils/color.dart';
+import 'package:chrmock2/widgets/single.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -25,6 +26,7 @@ import 'package:timeago/timeago.dart' as timeago;
 List<String> imgList = [];
 List<String> titleList = [];
 List<DateTime> dateList = [];
+List<Post> postList = [];
 List child = [];
 
 class CarouselWithIndicator extends StatefulWidget {
@@ -51,6 +53,10 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
   _initDateList() {
    dateList.clear();
  }
+
+  _initPostList() {
+   postList.clear();
+ }
   _setImgList() {
     _initImgList();
     for (var i = 0; i < posts.length; i++) {
@@ -72,6 +78,13 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
     }
   }
 
+   _setPostList() {
+    _initPostList();
+    for (var i = 0; i < posts.length; i++) {
+      postList.add(posts[i]);
+    }
+  }
+
   final Widget placeholder = Container(color: Colors.grey);
  @override
   void initState() {
@@ -80,11 +93,12 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
      _setImgList();
     _setTitleList();
      _setDateList();
-    setChild() ;
+    
   }
   @override
   Widget build(BuildContext context) {
    timeago.setLocaleMessages('fr', timeago.FrMessages());
+   setChild(posts,context) ;
     return Column(children: [
       CarouselSlider(
         items: child,
@@ -146,7 +160,7 @@ List<T> map<T>(List list, Function handler) {
   return result;
 }
 
-setChild() {
+setChild(List<Post>posts, BuildContext context) {
   timeago.setLocaleMessages('fr', timeago.FrMessages());
  child = map<Widget>(
   imgList,
@@ -176,7 +190,10 @@ setChild() {
               child: Column(
                 children: [
               InkWell(
-                onTap: () {},
+                onTap: () {
+                   Navigator.push(context,
+            MaterialPageRoute(builder: (context) => SinglePost(post: posts[index])));
+                },
                 child: Text(
                   titleList[index],
                   maxLines: 2,
