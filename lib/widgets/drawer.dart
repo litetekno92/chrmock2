@@ -72,7 +72,7 @@ class CustomDrawer extends StatelessWidget {
             Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[0].id, page: 1)));
+                        FetchDataCat(category: categories[0].id, page: categories[0].page)));
             
           }),
       CustomListTile(
@@ -82,7 +82,7 @@ class CustomDrawer extends StatelessWidget {
              Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[1].id, page: 1)));
+                        FetchDataCat(category: categories[1].id, page: categories[1].page)));
             
           }),
       CustomListTile(
@@ -92,7 +92,7 @@ class CustomDrawer extends StatelessWidget {
              Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[2].id, page: 1)));
+                        FetchDataCat(category: categories[2].id, page: categories[2].page)));
             
           }),
       CustomListTile(
@@ -102,7 +102,7 @@ class CustomDrawer extends StatelessWidget {
              Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[3].id, page: 1)));
+                        FetchDataCat(category: categories[3].id, page: categories[3].page)));
           }),
       CustomListTile(
           icon: categories[4].icon,
@@ -111,7 +111,7 @@ class CustomDrawer extends StatelessWidget {
              Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[4].id, page: 1)));
+                        FetchDataCat(category: categories[4].id, page: categories[4].page)));
           }),
       CustomListTile(
           icon: categories[5].icon,
@@ -120,7 +120,7 @@ class CustomDrawer extends StatelessWidget {
             Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[5].id, page: 1)));
+                        FetchDataCat(category: categories[5].id, page: categories[5].page)));
           }),
       CustomListTile(
           icon: categories[6].icon,
@@ -129,7 +129,7 @@ class CustomDrawer extends StatelessWidget {
              Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[6].id, page: 1)));
+                        FetchDataCat(category: categories[6].id, page: categories[6].page)));
           }),
       CustomListTile(
           icon: categories[7].icon,
@@ -138,7 +138,7 @@ class CustomDrawer extends StatelessWidget {
             Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[7].id, page: 1)));
+                        FetchDataCat(category: categories[7].id, page: categories[7].page)));
           }),
       CustomListTile(
           icon: categories[8].icon,
@@ -147,7 +147,7 @@ class CustomDrawer extends StatelessWidget {
              Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[8].id, page: 1)));
+                        FetchDataCat(category: categories[8].id, page: categories[8].page)));
           }),
       CustomListTile(
           icon: categories[9].icon,
@@ -156,7 +156,7 @@ class CustomDrawer extends StatelessWidget {
             Navigator.of(context).pop();
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (BuildContext context) =>
-                        FetchDataCat(category: categories[9].id, page: 1)));
+                        FetchDataCat(category: categories[9].id, page: categories[9].page)));
           }),
       // CustomListTile(
       //     icon: categories[0].icon,

@@ -7,7 +7,6 @@ import 'package:chrmock2/models/embedpost.dart';
 import 'package:chrmock2/utils/APIcat.dart';
 import 'package:chrmock2/widgets/card.dart';
 import 'package:chrmock2/widgets/drawer.dart';
-import 'dart:developer';
 import 'package:flutter/foundation.dart';
 
 class FetchDataCat extends StatefulWidget {

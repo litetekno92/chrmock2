@@ -11,8 +11,6 @@ import 'package:timeago/timeago.dart' as timeago;
 //import 'package:html_unescape/html_unescape.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-
-
 class PostCard extends StatefulWidget {
   final Post post;
 
@@ -29,21 +27,16 @@ class _PostCardState extends State<PostCard> {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    // makeCard(post);
-    Card(
-              child:
-
-              ListTile(
-
-                  contentPadding: EdgeInsets.all(10.0),
-                  title: new Text(post.title.rendered),
-                  // subtitle: new Text(post.excerpt.rendered),
-                  subtitle: new Text(post.featuredMediaUrl),
-
-                  ),
-
-              );
+    return
+        // makeCard(post);
+        Card(
+      child: ListTile(
+        contentPadding: EdgeInsets.all(10.0),
+        title: new Text(post.title.rendered),
+        // subtitle: new Text(post.excerpt.rendered),
+        subtitle: new Text(post.featuredMediaUrl),
+      ),
+    );
   }
 
   // Container makeListTile(Post post) => Container(
@@ -140,8 +133,6 @@ class _PostCardState extends State<PostCard> {
       );
 }
 
-
-
 void clicked(BuildContext context, menu) {
   final scaffold = Scaffold.of(context);
   scaffold.showSnackBar(
@@ -154,9 +145,9 @@ void clicked(BuildContext context, menu) {
 }
 
 class ItemClick extends StatelessWidget {
- final  Post post;
- ItemClick({this.post});
- //var unescape = new HtmlUnescape();
+  final Post post;
+  ItemClick({this.post});
+  //var unescape = new HtmlUnescape();
 //  var text = unescape.convert("&lt;strong&#62;This &quot;escaped&quot; string");
 
   @override
@@ -169,10 +160,8 @@ class ItemClick extends StatelessWidget {
         // Scaffold.of(context).showSnackBar(SnackBar(
         //   content: Text('Tap'),
         // ));
-        Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SinglePost(post: post)));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => SinglePost(post: post)));
       },
       child: Center(
         //       child: Container(
@@ -188,19 +177,18 @@ class ItemClick extends StatelessWidget {
             // decoration:
             //     BoxDecoration(border: Border.all(color: Colors.redAccent)),
 
-            child: Row(
-              children: [
+            child: Row(children: [
               Expanded(
-                flex: 3,
-                child: FadeInImage.assetNetwork(
-                  width: 120.0,
-                  height: 80.0,
-                  placeholder: 'images/placeholder.png',
-                  // image: 'https://picsum.photos/250?image=9',
-                  image: post.featuredMediaUrl ??
-                            'https://picsum.photos/250?image=9',)
-              ),
-               Expanded(
+                  flex: 3,
+                  child: FadeInImage.assetNetwork(
+                    width: 120.0,
+                    height: 80.0,
+                    placeholder: 'images/placeholder.png',
+                    // image: 'https://picsum.photos/250?image=9',
+                    image: post.featuredMediaUrl ??
+                        'https://picsum.photos/250?image=9',
+                  )),
+              Expanded(
                 flex: 9,
                 child: Container(
 //                     padding: EdgeInsets.only(bottom:2.0),
@@ -208,30 +196,30 @@ class ItemClick extends StatelessWidget {
                   // decoration: BoxDecoration(
                   //     border: Border.all(color: Colors.blueAccent)),
                   child: ListTile(
-                    title: 
-   //                 AutoSizeText(post.title.rendered,
-                      Html(
-        data: (post.title.rendered).toString(),
-        defaultTextStyle: TextStyle(
-   //         fontFamily: 'NotoKufiArabic',
-            fontSize: 16.0,
-            decoration: TextDecoration.none)),
+                    title:
+                        //                 AutoSizeText(post.title.rendered,
+                        Html(
+                            data: (post.title.rendered).toString(),
+                            defaultTextStyle: TextStyle(
+                                //         fontFamily: 'NotoKufiArabic',
+                                fontSize: 16.0,
+                                decoration: TextDecoration.none)),
 //                      unescape.convert(post.title.rendered),
- //                       'Voici des plus gros titres encore ! et encore. Voici des plus gros titres encore ! et encore  Voici des plus gros titres encore! ',
-                        // textAlign: TextAlign.left,
-                        // maxLines: 5,
-                        // overflow: TextOverflow.ellipsis,
-                        // style: TextStyle(
-                          
-                        //   color: Colors.black54,
-                        //   fontSize: 12.0,
-                        //   fontStyle: FontStyle.normal,
-                        //         fontWeight: FontWeight.w900,
-                        // )),
+                    //                       'Voici des plus gros titres encore ! et encore. Voici des plus gros titres encore ! et encore  Voici des plus gros titres encore! ',
+                    // textAlign: TextAlign.left,
+                    // maxLines: 5,
+                    // overflow: TextOverflow.ellipsis,
+                    // style: TextStyle(
+
+                    //   color: Colors.black54,
+                    //   fontSize: 12.0,
+                    //   fontStyle: FontStyle.normal,
+                    //         fontWeight: FontWeight.w900,
+                    // )),
                     subtitle: AutoSizeText(
-                      timeago.format( post.date, locale: 'fr'),
-         //             post.date.toString(),
-                      //'Il y a 2h',
+                        timeago.format(post.date, locale: 'fr'),
+                        //             post.date.toString(),
+                        //'Il y a 2h',
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.6),
                             fontSize: 10.0,

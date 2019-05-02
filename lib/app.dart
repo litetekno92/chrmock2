@@ -1,19 +1,12 @@
 
+import 'package:chrmock2/models/category.dart';
 import 'package:chrmock2/pages/fetchdatacat.dart';
+import 'package:chrmock2/utils/color.dart';
 //import 'package:chrmock2/pages/home.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
-  static String mblue = '#009EEE';
-  static String mbluehex = mblue.replaceAll("#", "");
-  static Color mbluecol =
-      Color(int.parse(mbluehex, radix: 16)).withOpacity(1.0);
-
-  static String mred = '#BF0021';
-  static String mredhex = mred.replaceAll("#", "");
-  static Color mredcol =
-      Color(int.parse(mredhex, radix: 16)).withOpacity(1.0);
-
+  
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -34,8 +27,8 @@ class MyApp extends StatelessWidget {
          // Define the default Brightness and Colors
     // brightness: Brightness.dark,
     brightness: Brightness.light,
-    primaryColor: mbluecol,
-    accentColor: mredcol,
+    primaryColor: CustomColor.mbluecol,
+    accentColor: CustomColor.mredcol,
     
     // // Define the default Font Family
     // fontFamily: 'Montserrat',
@@ -51,7 +44,7 @@ class MyApp extends StatelessWidget {
     // ),
       ),
  //     home: MyHomePage(title: 'Accueil Chroniques'),
-    home: FetchDataCat (category: 1, page: 1),
+    home: FetchDataCat (category: categories[0].id, page: categories[0].page),
  //home: Center(child: Text('Hello'),),
     );
   }

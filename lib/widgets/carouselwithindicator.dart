@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:chrmock2/models/embedpost.dart';
+import 'package:chrmock2/utils/color.dart';
 import 'package:flutter/material.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 // final List<String> titleList = [
 //   "Éjecté des Domaines : Mamour Diallo vers la Crei ?",
@@ -22,6 +24,7 @@ import 'package:flutter/material.dart';
 
 List<String> imgList = [];
 List<String> titleList = [];
+List<DateTime> dateList = [];
 List child = [];
 
 class CarouselWithIndicator extends StatefulWidget {
@@ -44,6 +47,10 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
   _initTitleList() {
    titleList.clear();
  }
+
+  _initDateList() {
+   dateList.clear();
+ }
   _setImgList() {
     _initImgList();
     for (var i = 0; i < posts.length; i++) {
@@ -58,6 +65,13 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
     }
   }
 
+   _setDateList() {
+    _initDateList();
+    for (var i = 0; i < posts.length; i++) {
+      dateList.add(posts[i].date);
+    }
+  }
+
   final Widget placeholder = Container(color: Colors.grey);
  @override
   void initState() {
@@ -65,11 +79,12 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
     super.initState();
      _setImgList();
     _setTitleList();
+     _setDateList();
     setChild() ;
   }
   @override
   Widget build(BuildContext context) {
-   
+   timeago.setLocaleMessages('fr', timeago.FrMessages());
     return Column(children: [
       CarouselSlider(
         items: child,
@@ -132,6 +147,7 @@ List<T> map<T>(List list, Function handler) {
 }
 
 setChild() {
+  timeago.setLocaleMessages('fr', timeago.FrMessages());
  child = map<Widget>(
   imgList,
   (index, i) {
@@ -157,7 +173,9 @@ setChild() {
                 ),
               ),
               padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-              child: InkWell(
+              child: Column(
+                children: [
+              InkWell(
                 onTap: () {},
                 child: Text(
                   titleList[index],
@@ -166,10 +184,23 @@ setChild() {
                   //              'No. $index image',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 10.0,
+                    fontSize: 12.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+              ),
+               Text(
+                        timeago.format(dateList[index], locale: 'fr'),
+                        //             post.date.toString(),
+                        //'Il y a 2h',
+                        
+                            style: TextStyle(
+         //                     Theme.of(context).accentColor,
+                    color: CustomColor.mbluecol,
+                    fontSize: 10.0,
+                    fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.normal)),
+                ],
               ),
             ),
           ),
