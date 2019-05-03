@@ -38,9 +38,13 @@ class _FetchDataCatState extends State<FetchDataCat> {
         Iterable list = json.decode(response.body);
         posts = list.map((model) => Post.fromJson(model)).toList();
         //     posts.forEach((post) => log(post.title));
+        int j=0;
         for (var i = 0; i < posts.length; i++) {
-          if (i < 6) {
+          if (j < 6) {
+            if (posts[i].featuredMedia == 1) {
             carouselPosts.add(posts[i]);
+            j++;
+            }
           } else {
             bodyPosts.add(posts[i]);
           }

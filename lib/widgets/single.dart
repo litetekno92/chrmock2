@@ -26,7 +26,13 @@ class SinglePost extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text(post.title.rendered),
+          title:
+          Html(
+                            data: post.title.rendered.toString(),
+                            defaultTextStyle: TextStyle(
+                                fontSize: 14.0,
+                                decoration: TextDecoration.none)),
+ //          new Text(post.title.rendered),
         ),
         body: new Padding(
           padding: EdgeInsets.all(12.0),
